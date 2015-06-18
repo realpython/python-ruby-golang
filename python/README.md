@@ -25,7 +25,3 @@ For help run:
 * `pymr --help`
 * `pymr register --help`
 * `pymr run --help`
-
-## Ports
-
-Pymr has been ported to ruby as [rumr](https://github.com/kpurdon/rumr) and go as [gomr](https://github.com/kpurdon/gomr).

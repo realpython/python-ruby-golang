@@ -23,7 +23,3 @@ For help run:
 * `rumr help`
 * `rumr help register`
 * `rumr help exec`
-
-## Ports
-
-rumr has been ported to python as [pymr](https://github.com/kpurdon/pymr) and go as [gomr](https://github.com/kpurdon/gomr).
