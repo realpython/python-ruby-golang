@@ -9,4 +9,4 @@ See the README.md in each of the subdirectories for more information.
 
 ## Blog Post
 
-[Coming Soon!]()
+[Python, Ruby, and Golang: A Command-Line Application Comparison](https://realpython.com/blog/python/python-ruby-and-golang-a-command-line-application-comparison/)
