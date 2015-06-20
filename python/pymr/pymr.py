@@ -3,7 +3,6 @@ import pickle
 import fnmatch
 from subprocess import call
 
-import pathlib
 import click
 
 
@@ -42,19 +41,15 @@ def run(command, basepath, tag, dryrun):
     run a given command in matching sub-directories
     '''
 
-    for fn in pathlib.Path(basepath).glob('**/.pymr'):
-
-        with fn.open(mode='rb') as f:
-            cur_tags = pickle.load(f)
-
-        parent_dir = str(fn.parent)
-
-        if tag in cur_tags:
-            if dryrun:
-                print('Would run {0} in {1}'.format(command, parent_dir))
-            else:
-                os.chdir(parent_dir)
-                call(command, shell=True)
+    for root, _, fns in os.walk(basepath):
+        for fn in fnmatch.filter(fns, '.pymr'):
+            cur_tags = pickle.load(open(os.path.join(root, fn)))
+            if tag in cur_tags:
+                if dryrun:
+                    print('Would run {0} in {1}'.format(command, root))
+                else:
+                    os.chdir(root)
+                    call(command, shell=True)
 
 
 if __name__ == '__main__':
